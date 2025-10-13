@@ -1,4 +1,7 @@
-<mat-card class="max-w-3xl m-2 cursor-pointer">
+<mat-card class="max-w-3xl m-2 cursor-pointer"
+          [ngClass]="formation().price === 0
+    ? 'bg-green-100 border-l-4 border-green-600 hover:bg-green-200'
+    : 'hover:bg-gray-50'">
   <mat-card-header routerLink="/formation/{{ formation().id }}">
     <mat-card-title>{{ formation().title }}</mat-card-title>
     <mat-card-subtitle>{{ formation().location }}</mat-card-subtitle>
@@ -8,7 +11,22 @@
     <p>
       {{ formation().description }}
     </p>
-    Date : {{ formation().date | date: 'dd/MM/yyyy' }}
+    <p class="flex items-center gap-1 text-gray-700 font-medium">
+      <span class="material-icons text-sm">schedule</span>
+      {{ formation().date | date: 'dd/MM/yyyy' }} — {{ formation().time }}
+    </p>
+    @if (formation().price > 0) {
+      <p>Prix : {{ formation().price }} €</p>
+    } @else {
+      <p class="text-green-700 font-semibold flex items-center gap-1">
+        <span class="material-icons text-sm">check_circle</span>
+        Gratuit
+      </p>
+    }
+    <p class="flex items-center gap-1 text-gray-700 font-medium">
+      <span class="material-icons text-sm">event_seat</span>
+      {{ formation().placeMax }} places
+    </p>
     <app-formation-tags [tags]="formation().tags"></app-formation-tags>
   </mat-card-content>
   <mat-card-footer>

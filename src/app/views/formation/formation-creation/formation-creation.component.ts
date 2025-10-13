@@ -35,8 +35,11 @@ export class FormationCreationComponent {
     location: new FormControl<string>('', [Validators.required]),
     date: new FormControl<Date>(new Date(), [Validators.required]),
     description: new FormControl<string>(''),
+    price: new FormControl<number>(0),
     tags: new FormControl<string>(''),
-    distance: new FormControl<number>(0, [Validators.required, Validators.min(1), Validators.max(100)])
+    distance: new FormControl<number>(0, [Validators.required, Validators.min(1), Validators.max(100)]),
+    time: new FormControl(),
+    placeMax: new FormControl(0),
   })
 
 
@@ -50,6 +53,9 @@ export class FormationCreationComponent {
       title: this.form.get('title')?.value!,
       location: this.form.get('location')?.value!,
       date: this.form.get('date')?.value!,
+      time: this.form.get('time')?.value!,
+      price: this.form.get('price')?.value!,
+      placeMax: this.form.get('placeMax')?.value!,
       description: this.form.get('description')?.value || '',
       tags: this.form.get('tags')?.value ? this.extractTags() : [],
       distance: this.form.get('distance')?.value!

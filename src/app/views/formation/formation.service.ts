@@ -14,6 +14,9 @@ export class FormationService {
       description: 'Fais tes premiers pas avec Angular',
       location: 'EPHEC',
       date: new Date("2025-09-20T10:30:00"),
+      time: '18:00 - 21:00',
+      price : 150,
+      placeMax : 25,
       tags: ['Angular', 'TypeScript'],
       distance: 10
     },
@@ -23,6 +26,9 @@ export class FormationService {
       description: 'Découvrez Springboot',
       location: 'Remote',
       date: new Date("2026-01-10T10:30:00"),
+      time: '14:00 - 17:00',
+      price : 250,
+      placeMax : 45,
       tags: ['Java', 'Springboot'],
       distance: 25
     }
