@@ -7,6 +7,7 @@ import {Formation} from '../../../model/Formation';
 import {uuid} from '../../../shared/uuid';
 import {MatError, MatFormField, MatHint} from '@angular/material/form-field';
 import {FormationService} from '../formation.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formation-creation',
@@ -41,7 +42,7 @@ export class FormationCreationComponent {
     time: new FormControl(),
     placeMax: new FormControl(0),
   })
-
+  constructor(private snackBar: MatSnackBar) {}
 
   isTitleTooLong() {
     return this.form.get('title')?.hasError('maxlength');
@@ -63,6 +64,10 @@ export class FormationCreationComponent {
 
     this.formationService.addFormation(formation);
     this.form.reset();
+    this.snackBar.open('Formation Added avec succès', 'Ok',{
+      duration:3000,
+    });
+
   }
 
   private extractTags() {
