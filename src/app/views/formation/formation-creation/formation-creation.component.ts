@@ -64,7 +64,7 @@ export class FormationCreationComponent {
 
     this.formationService.addFormation(formation);
     this.form.reset();
-    this.snackBar.open('Formation Added avec succès', 'Ok',{
+    this.snackBar.open('Formation crée avec succès', 'Ok',{
       duration:3000,
     });
 
