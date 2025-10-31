@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {MatFormField, MatHint, MatLabel} from '@angular/material/form-field';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatOption, MatSelect} from '@angular/material/select';
+import {MatInput} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +17,9 @@ import {MatOption, MatSelect} from '@angular/material/select';
     MatDatepicker,
     MatDatepickerInput,
     MatSelect,
-    MatOption
+    MatOption,
+    MatInput,
+    MatButton
   ],
   templateUrl: './user-profile.component.html'
 })
