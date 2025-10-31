@@ -18,9 +18,9 @@
 
   <mat-form-field>
     <mat-label>Date de naissance</mat-label>
-    <input matInput formControlName="birthDate" [matDatepicker]="picker" />
+    <input matInput [matDatepicker]="picker" formControlName="birthDate" />
     <mat-hint>JJ/MM/AAAA</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
@@ -37,13 +37,5 @@
     </mat-select>
   </mat-form-field>
 
-  <button
-    type="submit"
-    (click)="saveProfile()"
-    mat-flat-button
-    color="primary"
-    [disabled]="!form.valid"
-  >
-    Enregistrer
-  </button>
+  <button type="submit" (click)="saveProfile()" mat-flat-button color="primary" [disabled]="!form.valid">Enregistrer</button>
 </div>
