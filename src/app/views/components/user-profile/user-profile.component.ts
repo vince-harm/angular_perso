@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import {MAT_SUFFIX, MatFormField, MatFormFieldModule, MatHint, MatLabel} from '@angular/material/form-field';
 import { MatDatepicker, MatDatepickerInput, MatDatepickerToggle, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOption, MatSelect } from '@angular/material/select';
-import { MatInput } from '@angular/material/input';
+import {MatInput, MatSuffix} from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-user-profile',
   imports: [
     ReactiveFormsModule,
-    MatFormField,
+    MatFormFieldModule,
     MatLabel,
     MatHint,
     MatDatepickerToggle,
@@ -23,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatOption,
     MatInput,
     MatButton,
-    MatIconModule
+    MatIconModule,
+    MatSuffix
   ],
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
