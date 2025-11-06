@@ -1,6 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {MatButton} from '@angular/material/button';
-import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from '@angular/material/datepicker';
 import {MatInput, MatLabel, MatSuffix} from '@angular/material/input';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Formation} from '../../../model/Formation';
@@ -16,6 +21,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatDatepicker,
     MatDatepickerInput,
     MatDatepickerToggle,
+    MatDatepickerModule,
     MatError,
     MatFormField,
     MatHint,
