@@ -58,7 +58,6 @@ export class FormationCreationComponent {
 
   addFormation() {
     if (this.form.invalid) {
-      this.SnackbarService.showError('Veuillez remplir tous les champs obligatoires');
       return;
     }
     const formation: Formation = {

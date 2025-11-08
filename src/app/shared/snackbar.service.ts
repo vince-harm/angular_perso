@@ -12,10 +12,4 @@ export class SnackbarService {
       duration: 3000,
     });
   }
-
-  showError(message: string): void {
-    this.snackBar.open(message, 'Fermer', {
-      duration: 5000,
-    });
-  }
 }
