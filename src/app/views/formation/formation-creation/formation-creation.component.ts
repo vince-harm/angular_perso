@@ -12,7 +12,7 @@ import {Formation} from '../../../model/Formation';
 import {uuid} from '../../../shared/uuid';
 import {MatError, MatFormField, MatHint} from '@angular/material/form-field';
 import {FormationService} from '../formation.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {SnackbarService} from '../../../shared/snackbar.service';
 
 @Component({
