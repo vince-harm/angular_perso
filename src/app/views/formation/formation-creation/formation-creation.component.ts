@@ -61,7 +61,6 @@ export class FormationCreationComponent {
       this.SnackbarService.showError('Veuillez remplir tous les champs obligatoires');
       return;
     }
-    try {
     const formation: Formation = {
       id: uuid(),
       title: this.form.get('title')?.value!,
@@ -74,14 +73,9 @@ export class FormationCreationComponent {
       tags: this.form.get('tags')?.value ? this.extractTags() : [],
       distance: this.form.get('distance')?.value!
     };
-
     this.formationService.addFormation(formation);
     this.form.reset();
     this.SnackbarService.showSuccess(`Formation "${formation.title}" créée avec succès !`);
-  } catch (error) {
-      this.SnackbarService.showError('Erreur lors de la création de la formation');
-      console.error(error);
-    }
   }
   private extractTags() {
     let tagsAsString = this.form.get('tags')?.value!;
