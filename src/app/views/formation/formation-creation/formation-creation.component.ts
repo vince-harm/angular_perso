@@ -12,8 +12,7 @@ import {Formation} from '../../../model/Formation';
 import {uuid} from '../../../shared/uuid';
 import {MatError, MatFormField, MatHint} from '@angular/material/form-field';
 import {FormationService} from '../formation.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {SnackbarService} from '../../../shared/snackbar.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formation-creation',
@@ -37,7 +36,6 @@ import {SnackbarService} from '../../../shared/snackbar.service';
 export class FormationCreationComponent {
 
   formationService = inject(FormationService);
-  SnackbarService = inject(SnackbarService);
 
   form = new FormGroup({
     title: new FormControl<string>('', [Validators.required, Validators.maxLength(100)]),
@@ -57,9 +55,6 @@ export class FormationCreationComponent {
   }
 
   addFormation() {
-    if (this.form.invalid) {
-      return;
-    }
     const formation: Formation = {
       id: uuid(),
       title: this.form.get('title')?.value!,
@@ -71,11 +66,16 @@ export class FormationCreationComponent {
       description: this.form.get('description')?.value || '',
       tags: this.form.get('tags')?.value ? this.extractTags() : [],
       distance: this.form.get('distance')?.value!
-    };
+    }
+
     this.formationService.addFormation(formation);
     this.form.reset();
-    this.SnackbarService.showSuccess(`Formation ${formation.title} créée avec succès !`);
+    this.snackBar.open('Formation crée avec succès', 'Ok',{
+      duration:3000,
+    });
+
   }
+
   private extractTags() {
     let tagsAsString = this.form.get('tags')?.value!;
     return tagsAsString.split(',').map(t => t.trim());
