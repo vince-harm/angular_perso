@@ -10,8 +10,6 @@ export class SnackbarService {
   showSuccess(message: string): void {
     this.snackBar.open(message, 'Fermer', {
       duration: 3000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
       panelClass: ['success-snackbar']
     });
   }
@@ -19,8 +17,6 @@ export class SnackbarService {
   showError(message: string): void {
     this.snackBar.open(message, 'Fermer', {
       duration: 5000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
       panelClass: ['error-snackbar']
     });
   }
@@ -28,8 +24,6 @@ export class SnackbarService {
   showInfo(message: string): void {
     this.snackBar.open(message, 'OK', {
       duration: 3000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
       panelClass: ['info-snackbar']
     });
   }
