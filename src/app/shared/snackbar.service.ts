@@ -18,10 +18,4 @@ export class SnackbarService {
       duration: 5000,
     });
   }
-
-  showInfo(message: string): void {
-    this.snackBar.open(message, 'OK', {
-      duration: 3000,
-    });
-  }
 }
