@@ -75,7 +75,7 @@ export class FormationCreationComponent {
     };
     this.formationService.addFormation(formation);
     this.form.reset();
-    this.SnackbarService.showSuccess(`Formation "${formation.title}" créée avec succès !`);
+    this.SnackbarService.showSuccess(`Formation ${formation.title} créée avec succès !`);
   }
   private extractTags() {
     let tagsAsString = this.form.get('tags')?.value!;
