@@ -1,6 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {MatButton} from '@angular/material/button';
-import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from '@angular/material/datepicker';
 import {MatInput, MatLabel, MatSuffix} from '@angular/material/input';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Formation} from '../../../model/Formation';
@@ -8,6 +13,7 @@ import {uuid} from '../../../shared/uuid';
 import {MatError, MatFormField, MatHint} from '@angular/material/form-field';
 import {FormationService} from '../formation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {SnackbarService} from '../../../shared/snackbar.service';
 
 @Component({
   selector: 'app-formation-creation',
@@ -16,6 +22,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatDatepicker,
     MatDatepickerInput,
     MatDatepickerToggle,
+    MatDatepickerModule,
     MatError,
     MatFormField,
     MatHint,
@@ -30,6 +37,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class FormationCreationComponent {
 
   formationService = inject(FormationService);
+  snackbarService = inject(SnackbarService);
 
   form = new FormGroup({
     title: new FormControl<string>('', [Validators.required, Validators.maxLength(100)]),
@@ -42,7 +50,6 @@ export class FormationCreationComponent {
     time: new FormControl(),
     placeMax: new FormControl(0),
   })
-  constructor(private snackBar: MatSnackBar) {}
 
   isTitleTooLong() {
     return this.form.get('title')?.hasError('maxlength');
@@ -63,10 +70,8 @@ export class FormationCreationComponent {
     }
 
     this.formationService.addFormation(formation);
+    this.snackbarService.showSuccess(`Formation "${formation.title}" créée avec succès !`);
     this.form.reset();
-    this.snackBar.open('Formation crée avec succès', 'Ok',{
-      duration:3000,
-    });
 
   }
 
